@@ -1,7 +1,8 @@
-import {SEND_MESSAGE, RETRIEVE_MESSAGE, RETRIEVE_MESSAGES} from '../actions/constants';
+import {SEND_MESSAGE, RETRIEVE_MESSAGE, RETRIEVE_MESSAGES, CREATE_CONVERSATION} from '../actions/constants';
 
 const initialState = {
     messages: [],
+    conversations: [],
     loading: true
 }
 
@@ -14,6 +15,12 @@ export default function(state = initialState, action){
                 messages: payload,
                 loading: false
             };
+        case CREATE_CONVERSATION:
+            return{
+                ...state,
+                conversations: payload,
+                loading: false
+            }
         case RETRIEVE_MESSAGE:
             return{
                 ...state,
