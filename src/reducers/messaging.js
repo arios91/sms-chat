@@ -1,7 +1,6 @@
-import {SEND_MESSAGE, RETRIEVE_MESSAGE, RETRIEVE_MESSAGES, CREATE_CONVERSATION} from '../actions/constants';
+import {SEND_MESSAGE, RETRIEVE_MESSAGE, RETRIEVE_MESSAGES, CREATE_CONVERSATION, LOAD_CONVERSATIONS} from '../actions/constants';
 
 const initialState = {
-    messages: [],
     conversations: [],
     loading: true
 }
@@ -12,7 +11,7 @@ export default function(state = initialState, action){
         case SEND_MESSAGE:
             return{
                 ...state,
-                messages: payload,
+                conversations: state.conversations.map(conv => conv.conversation.sid === payload.conversation.sid ? payload : conv ),
                 loading: false
             };
         case CREATE_CONVERSATION:
@@ -24,7 +23,12 @@ export default function(state = initialState, action){
         case RETRIEVE_MESSAGE:
             return{
                 ...state,
-                messages: payload,
+                loading: false
+            }
+        case LOAD_CONVERSATIONS:
+            return{
+                ...state,
+                conversations: payload,
                 loading: false
             }
         default:

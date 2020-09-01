@@ -16,7 +16,6 @@ const Login = ({login, isAuthenticated}) => {
 
     const onSubmit = async e => {
         e.preventDefault();
-        console.log('test');
         login({email, password});
     }
 

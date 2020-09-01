@@ -1,10 +1,7 @@
 import React, {useEffect, Fragment} from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
 import './App.css';
-
-
-//Redux
 import { Provider } from 'react-redux';
 import store from './store';
 import {loadUser} from './actions/auth';
@@ -13,14 +10,17 @@ import Dashboard from './components/dashboard/Dashboard';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
+
 if(localStorage.token){
   setAuthToken(localStorage.token);
 }
 
+
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
-  })
+  }, [])
+
   return (
     <Provider store={store}>
       <Router>

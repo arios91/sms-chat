@@ -1,6 +1,7 @@
 // export const API_URL = 'http://localhost:5000';
 export const API_URL = 'https://alex-sms-message.herokuapp.com';
 
+export const LOADING_USER = 'LOADING_USER';
 export const GET_USERS = 'GET_USERS';
 export const GET_USER = 'GET_USER';
 export const USER_LOADED = 'USER_LOADED';
@@ -20,3 +21,4 @@ export const RETRIEVE_MESSAGE = "SEND_MESSAGE";
 export const RETRIEVE_MESSAGES = "SEND_MESSAGES";
 
 export const CREATE_CONVERSATION = "CREATE_CONVERSATION";
+export const LOAD_CONVERSATIONS = "LOAD_CONVERSATIONS";

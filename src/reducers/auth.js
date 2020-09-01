@@ -1,15 +1,20 @@
-import {REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, DELETE_ACCOUNT} from '../actions/constants';
+import {REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, DELETE_ACCOUNT, LOADING_USER} from '../actions/constants';
 
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
-    loading: true,
+    loading: false,
     user: null
 }
 
 export default function(state = initialState, action){
     const {type, payload} = action;
     switch(type){
+        case LOADING_USER:
+            return{
+                ...state,
+                loading: true
+            }
         case USER_LOADED:
             return{
                 ...state,
